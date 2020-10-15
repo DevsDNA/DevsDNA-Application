@@ -36,13 +36,12 @@ To compile the application you will need to include an archive called secrets.js
  
 if you want to know more about what is and how Client secrets work, take a look at [Mobile.BuildTools](https://github.com/dansiegel/Mobile.BuildTools)
  
- ## Screenshots ##
-
+## Screenshots ##
 ###### Android ######
- <img src="Images/mainScreenAndroid.png" alt="DevsDNA main screen on Android" Width="210" /> <img src="Images/detailScreenAndroid.png" alt="DevsDNA news detail screen on Android" Width="210" />
+ <img src="images/mainScreenAndroid.jpg" alt="DevsDNA main screen on Android" width="210" /> <img src="images/detailScreenAndroid.jpg" alt="DevsDNA news detail screen on Android" width="210" />
 
 ###### iOS ######
- <img src="Images/mainScreeniOS.png" alt="DevsDNA main screen on iOS" Width="210" /> <img src="Images/detailScreeniOS.png" alt="DevsDNA news detail screen on iOS" Width="210" />
+ <img src="images/mainScreenIOS.png" alt="DevsDNA main screen on iOS" width="210" /> <img src="images/detailScreenIOS.png" alt="DevsDNA news detail screen on iOS" width="210" />
  
 ## Contributing ##
 Any contribution is welcomed and appreciated. Feel free to make a PR or open an issue, we love to hear from you :)
