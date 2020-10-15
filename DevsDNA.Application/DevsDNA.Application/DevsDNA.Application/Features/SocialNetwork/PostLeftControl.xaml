@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<socialNetwork:PostControl xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:strings="clr-namespace:DevsDNA.Application.Strings"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+             xmlns:socialNetwork="clr-namespace:DevsDNA.Application.Features.SocialNetwork" 
+             xmlns:effects="clr-namespace:DevsDNA.Application.Effects"
+             mc:Ignorable="d"
+             Padding="-30,10,51,30" 
+             x:Class="DevsDNA.Application.Features.SocialNetwork.PostLeftControl"
+             x:Name="This">
+    <socialNetwork:PostControl.GestureRecognizers>
+        <TapGestureRecognizer  Command="{Binding Source={x:Reference This}, Path=Parent.BindingContext.OpenPostDetailCommand}" 
+                               CommandParameter="{Binding .}"/>
+    </socialNetwork:PostControl.GestureRecognizers>
+
+    <Frame x:Name="ViewMain" CornerRadius="25" HasShadow="{OnPlatform Android=True, iOS=False}" Padding="0"
+           BackgroundColor="{StaticResource WhiteColor}"
+           AutomationProperties.IsInAccessibleTree="True">
+        <Frame.Effects>
+            <effects:DropShadowEffect Offset="0,12" Radius="10" Opacity="0.7" ShadowColor="{OnPlatform Android=Black, iOS={StaticResource ShadowGrayColor}}"/>
+        </Frame.Effects>
+
+        <Grid x:Name="GridContent"
+              RowDefinitions="30,110" ColumnDefinitions="80,*,30" ColumnSpacing="15"
+              Margin="50,15,10,10">
+            <Label Grid.Row="0" Grid.Column="0"
+                   Text="{x:Static strings:Strings.SocialNetworkPostAuthor}" TextColor="{StaticResource LightBlueColor}" 
+                   FontFamily="SpaceMono-Regular" FontSize="Body" VerticalTextAlignment="Center"
+                   AutomationProperties.IsInAccessibleTree="False"/>
+            
+            <Label x:Name="LblAccountAndDate"
+                   Grid.Row="0" Grid.Column="1"
+                   TextColor="{StaticResource BrowGreyColor}" VerticalTextAlignment="Center"
+                   FontFamily="Heebo-Regular" FontSize="Micro"
+                   AutomationProperties.IsInAccessibleTree="False"/>
+            
+            <ffimage:CachedImage Grid.Row="0" Grid.Column="2"
+                                 Source="facebook" DownsampleToViewSize="True"
+                                 HeightRequest="20" WidthRequest="20"
+                                 VerticalOptions="Start" HorizontalOptions="Start"
+                                 AutomationProperties.IsInAccessibleTree="False"/>
+
+            <Label x:Name="LblMessage"
+                   Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3"
+                   MaxLines="5" LineBreakMode="TailTruncation" 
+                   TextColor="{StaticResource BrowGreyColor}" FontFamily="Heebo-Regular" FontSize="Small"
+                   AutomationProperties.IsInAccessibleTree="False"/>
+        </Grid>
+    </Frame>
+</socialNetwork:PostControl>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:base="clr-namespace:DevsDNA.Application.Base"                      
+                      xmlns:news="clr-namespace:DevsDNA.Application.Features.News"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                      xmlns:controls="clr-namespace:DevsDNA.Application.Controls.Carousel" 
+                      xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+                      xmlns:strings="clr-namespace:DevsDNA.Application.Strings"
+                      x:Class="DevsDNA.Application.Features.News.NewsView"
+                      x:TypeArguments="news:NewsViewModel">
+    <Grid>
+        <controls:CarouselAnimated x:Name="CarouselNews"
+                                   AutomationProperties.IsInAccessibleTree="{OnPlatform Android='True', iOS='False'}"
+                                   AutomationProperties.Name="{x:Static strings:Strings.AccessibleNewsCarouselName}"
+                                   AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleNewsCarouselHelp}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate x:DataType="news:BlogItemModel">
+                    <news:NewsCarouselItemView>
+                        <news:NewsCarouselItemView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:Reference CarouselNews}, Path=BindingContext.OpenDetailCommand}" 
+                                                  CommandParameter="{Binding .}"/>
+                        </news:NewsCarouselItemView.GestureRecognizers>
+                    </news:NewsCarouselItemView>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </controls:CarouselAnimated>
+
+        <lottie:AnimationView x:Name="LottieLoading" 
+                              AutoPlay="False" Loop="True"
+                              Animation="Loading.json" Scale="0.5" Speed="0.8"
+                              IsVisible="False" InputTransparent="True"
+                              AutomationProperties.IsInAccessibleTree="False"/>
+    </Grid>
+
+</base:BaseContentView>

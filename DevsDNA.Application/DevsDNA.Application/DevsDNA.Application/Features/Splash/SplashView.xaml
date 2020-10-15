@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+					  xmlns:base="clr-namespace:DevsDNA.Application.Base"
+					  xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+					  xmlns:splash="clr-namespace:DevsDNA.Application.Features.Splash"
+                      xmlns:strings="clr-namespace:DevsDNA.Application.Strings"
+					  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:controls="clr-namespace:DevsDNA.Application.Controls"
+                      x:Class="DevsDNA.Application.Features.Splash.SplashView"
+					  x:TypeArguments="splash:SplashViewModel"
+					  BackgroundColor="{StaticResource DarkBlueColor}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="StartButtonColor">#0df5ee</Color>
+            <Color x:Key="EndButtonColor">#c7ff16</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid>
+		<Grid x:Name="GridSplash">
+			<lottie:AnimationView x:Name="LottieBackground"
+								  Animation="BluePattern.json"
+								  Opacity="0"
+								  Loop="True" AutoPlay="False"
+                                  AutomationProperties.IsInAccessibleTree="False"/>
+
+			<lottie:AnimationView x:Name="LottieLogo"
+								  Animation="CenterToLogo.json" 
+								  Opacity="0" Scale="0.5" Speed="0.8"
+								  Loop="False" AutoPlay="False"
+                                  AutomationProperties.IsInAccessibleTree="False"/>
+		</Grid>
+        
+		<Grid x:Name="GridInitialScreen"
+              RowDefinitions="0.75*, auto, 1*"
+              Opacity="0">
+            <lottie:AnimationView x:Name="LottieBackgroundInitialScreen" 
+                                  Grid.Row="0" Grid.RowSpan="3"
+								  Animation="BluePattern.json" Loop="True" AutoPlay="False" 
+                                  Opacity="0"
+								  Rotation="90" TranslationX="-10"
+                                  AutomationProperties.IsInAccessibleTree="False"/>
+
+            <Image x:Name="ImgLogo"
+                   Grid.Row="0" Grid.RowSpan="3"
+                   Source="logotipo"
+				   Opacity="0"
+				   Margin="{OnPlatform Android='30,20,0,0', iOS='30,35,0,0'}" TranslationY="20"
+				   HorizontalOptions="Start" VerticalOptions="Start"
+                   AutomationProperties.IsInAccessibleTree="False" />
+
+            <controls:LabelTypewriter x:Name="LblSlogan"
+                                      Grid.Row="1"
+                                      TextColor="{StaticResource HighlightColor}" Font="SpaceMono-Regular"
+                                      FontSize="Title" LineBreakMode="WordWrap" 
+                                      Text="{x:Static strings:Strings.SplashSlogan}"  HorizontalTextAlignment="Center" VerticalTextAlignment="Start" 
+                                      Margin="50,0"			  
+                                      HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                      AutomationProperties.IsInAccessibleTree="True"
+                                      AutomationProperties.Name="{x:Static strings:Strings.AccessibleSplashSlogan}"
+                                      AutomationId=" "/>
+
+            <controls:ButtonRoundedGradient x:Name="BtnStart"
+                                            Grid.Row="2"
+                                            StartColor="{StaticResource StartButtonColor}" EndColor="{StaticResource EndButtonColor}" Text="{x:Static strings:Strings.SplashStart}"
+                                            Opacity="0"
+                                            IsVisible="False"
+                                            Margin="0,30,0,0"
+                                            HorizontalOptions="Center" VerticalOptions="Start"
+                                            AutomationProperties.IsInAccessibleTree="False"
+                                            AutomationProperties.Name="{x:Static strings:Strings.SplashStart}"/>
+        </Grid>        
+	</Grid>
+</base:BaseContentPage>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:aboutus="clr-namespace:DevsDNA.Application.Features.AboutUs"
+                      xmlns:base="clr-namespace:DevsDNA.Application.Base"
+                      xmlns:controls="clr-namespace:DevsDNA.Application.Controls"
+                      xmlns:effects="clr-namespace:DevsDNA.Application.Effects"
+                      xmlns:s="clr-namespace:DevsDNA.Application.Strings"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="DevsDNA.Application.Features.AboutUs.AboutUsView"
+                      x:TypeArguments="aboutus:AboutUsViewModel">
+    <CollectionView x:Name="MainCollection"
+                    ItemSizingStrategy="MeasureAllItems" ItemsUpdatingScrollMode="KeepItemsInView"
+                    AutomationProperties.IsInAccessibleTree="{OnPlatform Android='True', iOS='False'}">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout SnapPointsAlignment="Center" Orientation="Vertical" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.Header>
+            <StackLayout x:Name="StackHeader"
+                         Padding="30,5,30,20">
+                <Label x:Name="LblTitle"
+                       TextColor="{StaticResource VeryLightPinkColor}" FontFamily="Heebo-Black" LineHeight="0.8" Opacity="0"
+                       FontSize="Title" Text="{Static s:Strings.AboutUsTitle}"
+                       AutomationProperties.IsInAccessibleTree="True"
+                       AutomationProperties.Name="{Static s:Strings.AboutUsTitle}"
+                       AutomationId=" ">
+                    <Label.Effects>
+                        <effects:LabelShadowEffect Color="Black"/>
+                    </Label.Effects>
+                </Label>
+
+                <controls:LabelTypewriter x:Name="LblSubtitle"
+                                          TextColor="{StaticResource HighlightColor}" Font="SpaceMono-Regular" FontSize="Subtitle" 
+                                          LineBreakMode="WordWrap" Text="{Static s:Strings.AboutUsSubtitle}" LineHeight="0.8"
+                                          HorizontalTextAlignment="Start"
+                                          HorizontalOptions="FillAndExpand"
+                                          AutomationProperties.IsInAccessibleTree="True"
+                                          AutomationProperties.Name="{Static s:Strings.AccessibleAboutUsSubtitle}"
+                                          AutomationId=" "/>
+            </StackLayout>
+        </CollectionView.Header>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <aboutus:ThunderMateControl />
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</base:BaseContentView>

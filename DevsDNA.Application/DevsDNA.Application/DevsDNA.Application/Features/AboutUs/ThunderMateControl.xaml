@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" 
+      xmlns:controls="clr-namespace:DevsDNA.Application.Controls"
+      xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+      x:Class="DevsDNA.Application.Features.AboutUs.ThunderMateControl"
+      RowDefinitions="350,35,30,Auto"
+      RowSpacing="0"
+      Padding="50,0,50,12">
+
+    <ffimage:CachedImage x:Name="ImgThunderMate"
+                         Grid.Row="0"
+                         Aspect="AspectFit"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                         AutomationProperties.IsInAccessibleTree="False"/>
+
+    <Label x:Name="LblName"
+           Grid.Row="1"
+           TextColor="{StaticResource WhiteColor}" Font="Heebo-Bold" FontSize="Medium" MaxLines="1"
+           LineBreakMode="WordWrap" HorizontalTextAlignment="Center"
+           VerticalOptions="Center"
+           AutomationProperties.IsInAccessibleTree="True"
+           AutomationId=" "/>
+    
+    <controls:LabelTypewriter x:Name="LblTitle"
+                              Grid.Row="2"
+                              TextColor="{StaticResource HighlightColor}" Font="SpaceMono-Regular" FontSize="Small" 
+                              LineBreakMode="WordWrap" MaxLines="1"
+                              HorizontalTextAlignment="Center"
+                              HorizontalOptions="FillAndExpand"
+                              AutomationProperties.IsInAccessibleTree="True"
+                              AutomationId=" "/>
+
+    <Label x:Name="LblFunnyDescription"
+           Grid.Row="3"
+           TextColor="{StaticResource WhiteColor}" Font="Heebo-Regular" FontSize="Small" 
+           LineBreakMode="WordWrap" HorizontalTextAlignment="Center"
+           Opacity="0" Scale="0"
+           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+           AutomationProperties.IsInAccessibleTree="False"/>
+
+    <Label x:Name="LblDescription"
+           Grid.Row="3"
+           TextColor="{StaticResource WhiteColor}" Font="Heebo-Regular" FontSize="Small" 
+           LineBreakMode="WordWrap" HorizontalTextAlignment="Center"
+           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+           AutomationProperties.IsInAccessibleTree="True"
+           AutomationId=" "/>
+
+</Grid>

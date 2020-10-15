@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<carousel:ContentViewAnimated xmlns="http://xamarin.com/schemas/2014/forms" 
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:carousel="clr-namespace:DevsDNA.Application.Controls.Carousel" 
+                              xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows" 
+                              xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+                              xmlns:effects="clr-namespace:DevsDNA.Application.Effects"
+                              xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                              xmlns:news="clr-namespace:DevsDNA.Application.Features.News"
+                              xmlns:strings="clr-namespace:DevsDNA.Application.Strings"
+                              mc:Ignorable="d"              
+                              BackOpacity="0.5"
+                              x:Class="DevsDNA.Application.Features.News.NewsCarouselItemView">
+    
+    <sh:Shadows x:Name="SdContent"
+                CornerRadius="30">
+        <sh:Shadows.Shades>
+            <sh:ImmutableShades>
+                <sh:Shade BlurRadius="{OnPlatform Android=10, iOS=25}" Offset="0,20"
+                          Color="{StaticResource ShadowGrayColor}" Opacity="0.5" />
+            </sh:ImmutableShades>
+        </sh:Shadows.Shades>
+        <Frame x:Name="FrameContent"
+               CornerRadius="30" HasShadow="False" IsClippedToBounds="True"
+               Padding="0"
+               AutomationProperties.IsInAccessibleTree="True"
+               AutomationProperties.Name="{Binding Title}"
+               AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleDoubleTapNewsDetail}">
+            <Frame.Effects>
+                <effects:FixedFrameClippedToBoundsEffect/>
+            </Frame.Effects>
+            <Grid RowDefinitions="*, 15, auto, 35, 0">
+                <ffimage:CachedImage Grid.Row="0" Grid.RowSpan="5"
+                                     Aspect="AspectFill" Source="{Binding Image}"
+                                     sharedTransitions:Transition.Name="{x:Static news:NewsCarouselItemView.ImageTransitionName}" sharedTransitions:Transition.Group="{Binding Id}"
+                                     AutomationProperties.IsInAccessibleTree="False"/>
+
+                <BoxView Grid.Row="1" Grid.RowSpan="4" 
+                         Opacity="0.65" BackgroundColor="Black"/>
+
+                <Label Grid.Row="2"
+                       TextColor="White" FontFamily="Heebo-Black" HorizontalTextAlignment="Start" LineHeight="0.8"
+                       FontSize="Body" Text="{Binding Title}"
+                       Margin="25,0"
+                       AutomationProperties.IsInAccessibleTree="False"/>
+
+                <Label Grid.Row="3"
+                       TextColor="White" FontFamily="SpaceMono-Regular" HorizontalTextAlignment="Start"
+                       FontSize="Small" Text="{Binding Created, StringFormat='{0:dd MMMM yyyy}'}"
+                       Margin="25,0"
+                       AutomationProperties.IsInAccessibleTree="False"/>
+
+                <BoxView x:Name="BoxViewOpacity"
+                         Grid.Row="0" Grid.RowSpan="5" 
+                         Opacity="0.5" BackgroundColor="{StaticResource BrightnessColor}"/>
+            </Grid>
+        </Frame>
+    </sh:Shadows>
+</carousel:ContentViewAnimated>

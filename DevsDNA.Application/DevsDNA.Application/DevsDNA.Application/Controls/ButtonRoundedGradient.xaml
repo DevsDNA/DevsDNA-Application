@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<controls:FrameGradient xmlns="http://xamarin.com/schemas/2014/forms" 
+                        xmlns:controls="clr-namespace:DevsDNA.Application.Controls"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                        mc:Ignorable="d"
+                        HasShadow="False" CornerRadius="20"
+                        HeightRequest="38"  Padding="3"
+                        x:Class="DevsDNA.Application.Controls.ButtonRoundedGradient"
+                        AutomationProperties.IsInAccessibleTree="False">    
+    <Grid AutomationProperties.IsInAccessibleTree="False">
+        <Frame x:Name="FrInner"
+               CornerRadius="17" HasShadow="False"
+               BackgroundColor="{StaticResource DarkBlueColor}"
+               Padding="30,0,30,0"
+               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+               AutomationProperties.IsInAccessibleTree="False">
+            <Label x:Name="LblText"
+                   FontSize="Small" TextColor="White" Font="Heebo-Bold"
+                   VerticalOptions="Center" HorizontalOptions="Center"
+                   AutomationProperties.IsInAccessibleTree="False"/>
+        </Frame>
+        
+        <Button x:Name="BtnCommand"
+                Command="{Binding Command}"
+                BackgroundColor="Transparent"
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                AutomationProperties.IsInAccessibleTree="False" >
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter TargetName="FrInner"
+                                    Property="Frame.BackgroundColor"
+                                    Value="{StaticResource DarkSlateBlueColor}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Button>
+    </Grid>
+</controls:FrameGradient>

@@ -1,0 +1,141 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ReleaseVersion>1.0.1</ReleaseVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Heebo-Black.ttf" />
+    <None Remove="Fonts\Heebo-Bold.ttf" />
+    <None Remove="Fonts\Heebo-ExtraBold.ttf" />
+    <None Remove="Fonts\Heebo-Light.ttf" />
+    <None Remove="Fonts\Heebo-Medium.ttf" />
+    <None Remove="Fonts\Heebo-Regular.ttf" />
+    <None Remove="Fonts\Heebo-Thin.ttf" />
+    <None Remove="Fonts\SpaceMono-Bold.ttf" />
+    <None Remove="Fonts\SpaceMono-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\Heebo-Black.ttf" />
+    <EmbeddedResource Include="Fonts\Heebo-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\Heebo-ExtraBold.ttf" />
+    <EmbeddedResource Include="Fonts\Heebo-Light.ttf" />
+    <EmbeddedResource Include="Fonts\Heebo-Medium.ttf" />
+    <EmbeddedResource Include="Fonts\Heebo-Regular.ttf" />
+    <EmbeddedResource Include="Fonts\Heebo-Thin.ttf" />
+    <EmbeddedResource Include="Fonts\SpaceMono-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\SpaceMono-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.1.2" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.2.2" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.2.2" />
+    <PackageReference Include="Microsoft.AppCenter.Distribute" Version="3.2.2" />
+    <PackageReference Include="Mobile.BuildTools" Version="1.4.0.638">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="ReactiveUI.XamForms" Version="11.4.17" />
+    <PackageReference Include="refit" Version="5.1.67" />
+    <PackageReference Include="Sharpnado.Shadows" Version="1.0.1" />
+    <PackageReference Include="System.ServiceModel.Syndication" Version="4.7.0" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="4.7.0.968" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.Plugin.SharedTransitions" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Features\AboutUs\ThunderMateControl.xaml.cs">
+      <DependentUpon>ThunderMateControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Features\News\NewsCarouselItemView.xaml.cs">
+      <DependentUpon>NewsCarouselItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Features\SocialNetwork\PostRigthControl.xaml.cs">
+      <DependentUpon>PostRigthControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Features\SocialNetwork\PostLeftControl.xaml.cs">
+      <DependentUpon>PostLeftControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Features\Videos\VideosView.xaml.cs">
+      <DependentUpon>VideosView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Strings\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Controls\ButtonRoundedGradient.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\AboutUs\AboutUsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\AboutUs\ThunderMateControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\Main\ButtonFan.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\Main\MainView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\Main\TabButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\News\NewsCarouselItemView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\News\NewsDetail\NewsDetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\News\NewsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\SocialNetwork\PostDetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\SocialNetwork\PostLeftControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\SocialNetwork\PostRigthControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\SocialNetwork\SocialNetworkView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\Splash\SplashView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\Videos\VideoCarouselItemView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\Videos\VideoDetail\VideoDetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\Videos\VideosView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Strings\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\AccessibilityChecker\" />
+  </ItemGroup>
+</Project>

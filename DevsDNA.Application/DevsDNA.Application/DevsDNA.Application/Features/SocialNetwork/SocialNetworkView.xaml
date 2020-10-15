@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:base="clr-namespace:DevsDNA.Application.Base"
+                      xmlns:socialnetwork="clr-namespace:DevsDNA.Application.Features.SocialNetwork"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                      xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+                      x:Class="DevsDNA.Application.Features.SocialNetwork.SocialNetworkView"
+                      x:TypeArguments="socialnetwork:SocialNetworkViewModel"
+                      x:Name="This">
+    
+    <Grid x:Name="GridMain"
+          RowSpacing="0" RowDefinitions="0,*" ColumnSpacing="0" ColumnDefinitions="0.5*,0.5*">
+        <socialnetwork:CollectionViewSocialNetwork x:Name="CollectionSocialNetwork"
+                                                   Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2"
+                                                   AutomationProperties.IsInAccessibleTree="{OnPlatform Android='True', iOS='False'}">
+            <socialnetwork:CollectionViewSocialNetwork.Header>
+                <BoxView x:Name="CollectionViewHeader"/>
+            </socialnetwork:CollectionViewSocialNetwork.Header>
+        </socialnetwork:CollectionViewSocialNetwork>        
+        
+        <socialnetwork:PostDetailView x:Name="PostDetailView"
+                                      Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                      AutomationProperties.IsInAccessibleTree="False"/>
+
+        <lottie:AnimationView x:Name="LottieLoading" 
+                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                              AutoPlay="False" Loop="True"
+                              Animation="Loading.json" Scale="0.5" Speed="0.8"
+                              IsVisible="False" InputTransparent="True"
+                              AutomationProperties.IsInAccessibleTree="False"/>
+    </Grid>
+</base:BaseContentView>

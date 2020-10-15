@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" 
+      xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+      xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+      xmlns:strings="clr-namespace:DevsDNA.Application.Strings"
+      x:Class="DevsDNA.Application.Features.Main.ButtonFan"
+      InputTransparent="True" CascadeInputTransparent="False"
+      HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <Grid.Resources>
+        <ResourceDictionary>
+            <Style TargetType="sh:Shadows">
+                <Setter Property="CornerRadius" Value="28" />
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="HeightRequest" Value="56" />
+                <Setter Property="WidthRequest" Value="56" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Scale" Value="0" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>          
+            <Style TargetType="Frame">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="CornerRadius" Value="28" />
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkSlateBlueColor}" />
+                <Setter Property="HeightRequest" Value="56" />
+                <Setter Property="WidthRequest" Value="56" />
+            </Style>
+            <Style TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkSlateBlueColor}"/>
+                <Setter Property="Padding" Value="15"/>
+                <Setter Property="CornerRadius" Value="28"/>
+            </Style>
+        </ResourceDictionary>
+    </Grid.Resources>
+
+    <sh:Shadows x:Name="Shadows1" IsVisible="False">
+        <sh:Shadows.Shades>
+            <sh:ImmutableShades>
+                <sh:Shade x:Name="Shade1" 
+                          Color="{StaticResource ShadowGrayColor}" Offset="0,10" BlurRadius="{OnPlatform Android=4, iOS=8}"
+                          Opacity="0.5"/>
+            </sh:ImmutableShades>
+        </sh:Shadows.Shades>
+        <Frame>
+            <ImageButton x:Name="Btn1" AutomationProperties.IsInAccessibleTree="True"/>
+        </Frame>
+    </sh:Shadows>
+
+    <sh:Shadows x:Name="Shadows2" IsVisible="False">
+        <sh:Shadows.Shades>
+            <sh:ImmutableShades>
+                <sh:Shade x:Name="Shade2" 
+                          Color="{StaticResource ShadowGrayColor}" Offset="0,10" BlurRadius="{OnPlatform Android=4, iOS=8}"
+                          Opacity="0.5"/>
+            </sh:ImmutableShades>
+        </sh:Shadows.Shades>
+        <Frame>
+            <ImageButton x:Name="Btn2" AutomationProperties.IsInAccessibleTree="True"/>
+        </Frame>
+    </sh:Shadows>
+
+    <sh:Shadows x:Name="Shadows3" IsVisible="False">
+        <sh:Shadows.Shades>
+            <sh:ImmutableShades>
+                <sh:Shade x:Name="Shade3" 
+                          Color="{StaticResource ShadowGrayColor}" Offset="0,10" BlurRadius="{OnPlatform Android=4, iOS=8}"
+                          Opacity="0.5" />
+            </sh:ImmutableShades>
+        </sh:Shadows.Shades>
+        <Frame>
+            <ImageButton x:Name="Btn3" AutomationProperties.IsInAccessibleTree="True"/>
+        </Frame>
+    </sh:Shadows>
+
+    <sh:Shadows x:Name="Shadows4" IsVisible="False">
+        <sh:Shadows.Shades>
+            <sh:ImmutableShades>
+                <sh:Shade x:Name="Shade4" 
+                          Color="{StaticResource ShadowGrayColor}" Offset="0,10" BlurRadius="{OnPlatform Android=4, iOS=8}"
+                          Opacity="0.5" />
+            </sh:ImmutableShades>
+        </sh:Shadows.Shades>
+        <Frame>
+            <ImageButton x:Name="Btn4" Padding="15" AutomationProperties.IsInAccessibleTree="True"/>
+        </Frame>
+    </sh:Shadows>
+
+    <sh:Shadows x:Name="ShadowsLogo" Scale="1">
+        <sh:Shadows.Shades>
+            <sh:ImmutableShades>
+                <sh:Shade Color="{StaticResource ShadowGrayColor}" Offset="0,10" BlurRadius="{OnPlatform Android=4, iOS=8}" Opacity="0.5"/>
+            </sh:ImmutableShades>
+        </sh:Shadows.Shades>
+
+        <Frame x:Name="FrameLogo"
+               CornerRadius="28" HasShadow="False"
+               BackgroundColor="{StaticResource DarkSlateBlueColor}"
+               HeightRequest="56" WidthRequest="56" Padding="0"
+               AutomationProperties.IsInAccessibleTree="True"
+               AutomationProperties.Name="{x:Static strings:Strings.AccessibleBtnMainActionsHelp}"
+               AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleBtnMainActions}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapFrameButtonLogo"/>
+            </Frame.GestureRecognizers>
+            <lottie:AnimationView x:Name="LottieLogo"
+                                  Animation="BoxToSymbol.json" Loop="False"
+                                  Scale="0.5" BackgroundColor="Transparent" InputTransparent="True"
+                                  AutomationProperties.IsInAccessibleTree="False"/>
+        </Frame>
+
+    </sh:Shadows>
+</Grid>

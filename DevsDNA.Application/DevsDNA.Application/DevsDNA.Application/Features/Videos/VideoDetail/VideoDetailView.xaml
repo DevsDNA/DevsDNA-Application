@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:base="clr-namespace:DevsDNA.Application.Base"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                      xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                      xmlns:videos="clr-namespace:DevsDNA.Application.Features.Videos" 
+                      xmlns:videoDetail="clr-namespace:DevsDNA.Application.Features.Videos.VideoDetail" 
+                      xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                      xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+                      xmlns:effects="clr-namespace:DevsDNA.Application.Effects"
+                      xmlns:strings="clr-namespace:DevsDNA.Application.Strings"
+                      mc:Ignorable="d"
+                      x:TypeArguments="videos:VideoDetailViewModel"
+                      BackgroundColor="Black" NavigationPage.HasNavigationBar="False"
+                      ios:Page.UseSafeArea="true" 
+                      x:Class="DevsDNA.Application.Features.Videos.VideoDetailView">
+    <base:BaseContentPage.Effects>
+        <effects:PageStatusBarEffect Color="Black"/>
+    </base:BaseContentPage.Effects>
+    
+    <Grid AutomationProperties.IsInAccessibleTree="True"
+          AutomationProperties.Name="{x:Static strings:Strings.AccessibleBtnPlayVideo}"
+          AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleBtnPlayVideoHelp}">
+        <videoDetail:WebviewYoutube x:Name="WebViewYoutube"
+                                    IsVisible="false"
+                                    VerticalOptions="Center" HorizontalOptions="FillAndExpand"
+                                    AutomationProperties.IsInAccessibleTree="False"/>
+
+        <ffimage:CachedImage x:Name="ImageThumbnail"
+                             Aspect="AspectFill" Source="{Binding VideoModel.Image}"
+                             sharedTransitions:Transition.Name="{x:Static videos:VideoCarouselItemView.ImageTransitionName}"      
+                             InputTransparent="true"
+                             HeightRequest="{Binding Source={x:Reference WebViewYoutube}, Path=HeightRequest}"
+                             VerticalOptions="Center" HorizontalOptions="FillAndExpand"
+                             AutomationProperties.IsInAccessibleTree="False"/>
+
+        <ActivityIndicator x:Name="IndicatorVideoLoading"
+                           IsVisible="false" IsRunning="True" Color="{StaticResource DarkBlueColor}"
+                           VerticalOptions="Center" HorizontalOptions="Center"
+                           AutomationProperties.IsInAccessibleTree="False"/>
+
+        <Button x:Name="ButtonClose"                
+                ImageSource="close" BackgroundColor="Transparent"
+                Margin="15" WidthRequest="25" HeightRequest="25"
+                HorizontalOptions="End" VerticalOptions="Start"
+                AutomationProperties.IsInAccessibleTree="True"
+                AutomationProperties.Name="{x:Static strings:Strings.AccessibleBtnClose}"
+                AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleBtnCloseVideoHelp}"/>
+    </Grid>   
+    
+</base:BaseContentPage>

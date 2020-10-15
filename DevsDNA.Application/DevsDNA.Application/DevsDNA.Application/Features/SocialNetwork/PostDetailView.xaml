@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+      xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+      xmlns:strings="clr-namespace:DevsDNA.Application.Strings"
+      xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+      mc:Ignorable="d"              
+      InputTransparent="True"
+      Opacity="0" VerticalOptions="FillAndExpand"
+      ColumnDefinitions="5,50,*,5" RowDefinitions="9,5,2,50,auto,*" 
+      ColumnSpacing="15" RowSpacing="15"
+      x:Class="DevsDNA.Application.Features.SocialNetwork.PostDetailView"
+      x:Name="This">
+    
+    <Grid.GestureRecognizers>
+        <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
+    </Grid.GestureRecognizers>
+
+    <sh:Shadows Grid.Row="1" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="4"
+                CornerRadius="30">
+        <sh:Shadows.Shades>
+            <sh:ImmutableShades>
+                <sh:Shade BlurRadius="{OnPlatform Android=10, iOS=20}" Offset="0,-5"
+                          Color="{StaticResource ShadowGrayColor}" Opacity="0.5"/>
+            </sh:ImmutableShades>
+        </sh:Shadows.Shades>
+        <BoxView CornerRadius="30"
+                 BackgroundColor="{StaticResource WhiteColor}"/>
+    </sh:Shadows>
+
+    <sh:Shadows Grid.Row="0" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="4"
+                CornerRadius="24"   
+                HeightRequest="48" WidthRequest="48" Margin="0,0,24,0"
+                HorizontalOptions="End" VerticalOptions="Start">
+        <sh:Shadows.Shades>
+            <sh:ImmutableShades>
+                <sh:Shade Color="{StaticResource ShadowGrayColor}" Offset="0,12" BlurRadius="{OnPlatform Android=5, iOS=12}"/>
+            </sh:ImmutableShades>
+        </sh:Shadows.Shades>
+        <Button x:Name="ButtonClose"
+                ImageSource="close_blue" CornerRadius="24"
+                BackgroundColor="White"
+                Clicked="OnCloseClicked"
+                AutomationProperties.IsInAccessibleTree="True"
+                AutomationProperties.Name="{x:Static strings:Strings.AccessibleBtnClose}"
+                AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleBtnClosePostHelp}"/>
+    </sh:Shadows>
+
+    <BoxView Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+             CornerRadius="2" Color="{StaticResource DarkBlueColor}" 
+             WidthRequest="50" HeightRequest="2"
+             HorizontalOptions="Center"/>
+
+    <Frame Grid.Row="3" Grid.Column="1"
+           CornerRadius="25" HasShadow="False" 
+           Padding="8" BackgroundColor="{StaticResource DarkBlueColor}">
+        <lottie:AnimationView x:Name="LottieLogo"
+                              Animation="CenterToLogo.json" Speed="0.8" Loop="False"
+                              AutomationProperties.IsInAccessibleTree="False"/>
+    </Frame>
+
+    <Label Grid.Row="3" Grid.Column="2"
+           Text="{x:Static strings:Strings.SocialNetworkPostAuthor}" TextColor="{StaticResource LightBlueColor}" 
+           FontFamily="SpaceMono-Regular" FontSize="Body" VerticalOptions="Start"
+           AutomationProperties.IsInAccessibleTree="False"/>
+
+    <Label x:Name="LabelDate" 
+           Grid.Row="3" Grid.Column="2"
+           FontSize="Small" TextColor="{StaticResource BrowGreyColor}" FontFamily="Heebo-Regular"
+           VerticalOptions="End"
+           AutomationProperties.IsInAccessibleTree="False"/>
+
+    <ScrollView x:Name="ScrollViewDetail" BackgroundColor="White"
+                Grid.Row="4" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="4"
+                VerticalScrollBarVisibility="Never"
+                Padding="15,0,15,20">
+        <StackLayout Orientation="Vertical" 
+                     Padding="0,0,0,10" Spacing="15">
+            <Label x:Name="LabelMessage"
+                   TextColor="{StaticResource BrowGreyColor}" FontFamily="Heebo-Regular" FontSize="Small"
+                   AutomationProperties.IsInAccessibleTree="True"/>
+
+            <ffimage:CachedImage x:Name="ImagePost"
+                                 Aspect="AspectFit"
+                                 BackgroundColor="{StaticResource VeryLightPinkColor}"
+                                 HorizontalOptions="Center" VerticalOptions="Start"
+                                 AutomationProperties.IsInAccessibleTree="False"/>
+
+            <Grid x:Name="GridShare"
+                  Grid.Row="2"
+                  RowDefinitions="15,85" ColumnDefinitions="100,*" RowSpacing="0"
+                  AutomationProperties.IsInAccessibleTree="True"
+                  AutomationProperties.Name="{x:Static strings:Strings.AccessibleBtnOpenPost}"
+                  AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleBtnOpenPostHelp}">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={x:Reference This}, Path=LinkCommand}" CommandParameter="{Binding Attachments[0].Url}"/>
+                </Grid.GestureRecognizers>
+                <ffimage:CachedImage x:Name="ImageShare"
+                                     Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                                     Aspect="AspectFit" DownsampleToViewSize="True"
+                                     BackgroundColor="{StaticResource VeryLightPinkColor}"
+                                     AutomationProperties.IsInAccessibleTree="False"/>
+
+                <Label x:Name="LabelShareTitle" 
+                       Grid.Row="0" Grid.Column="1"
+                       MaxLines="1" LineBreakMode="TailTruncation"
+                       TextColor="{StaticResource LightBlueColor}" FontFamily="Heebo-Regular" FontSize="Small"
+                       Margin="{OnPlatform Android='0,-5,0,0'}"
+                       AutomationProperties.IsInAccessibleTree="False"/>
+
+                <Label x:Name="LabelShareDescription" 
+                       Grid.Row="1" Grid.Column="1" MaxLines="{OnPlatform iOS=5,Android=6}"
+                       TextColor="{StaticResource VeryLightPinkColor}" FontFamily="Heebo-Regular" FontSize="Micro"
+                       Margin="{OnPlatform iOS='0,3,0,0'}" LineHeight="{OnPlatform iOS=0.9}"
+                       AutomationProperties.IsInAccessibleTree="False"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</Grid>

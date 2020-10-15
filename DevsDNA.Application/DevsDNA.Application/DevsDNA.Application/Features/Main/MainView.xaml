@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             xmlns:main="clr-namespace:DevsDNA.Application.Features.Main"             
+             xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             xmlns:strings="clr-namespace:DevsDNA.Application.Strings"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DevsDNA.Application.Features.Main.MainView"
+             sharedTransitions:SharedTransitionNavigationPage.BackgroundAnimation="Fade"
+             sharedTransitions:SharedTransitionNavigationPage.TransitionDuration="300"
+             BackgroundColor="{StaticResource DarkBlueColor}">
+
+    <Grid x:Name="MainGrid"
+          RowDefinitions="200, 50, 4, 100, *" RowSpacing="0"
+          Padding="0"
+          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+        <BoxView x:Name="BoxBackground"
+                 Grid.Row="4"
+                 Color="{StaticResource WhiteColor}"
+                 HeightRequest="0"
+                 HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+
+        <lottie:AnimationView x:Name="LottieBackground1"
+                              Grid.Row="0" Grid.RowSpan="4"
+                              Animation="BluePattern.json"
+                              Opacity="1" InputTransparent="True"
+                              Loop="True" IsPlaying="False" RotationX="180"
+                              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                              AutomationProperties.IsInAccessibleTree="False"/>
+
+        <lottie:AnimationView x:Name="LottieBackground2"
+                              Grid.Row="3" Grid.RowSpan="2"
+                              Animation="BluePattern.json"
+                              Opacity="0" InputTransparent="True"
+                              Loop="True" IsPlaying="False"
+                              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                              AutomationProperties.IsInAccessibleTree="False" />
+
+
+        <ContentView x:Name="ContentNews"
+                     Grid.Row="3" Grid.RowSpan="2"
+                     Opacity="0"
+                     Margin="0,20,0,40"
+                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     AutomationProperties.IsInAccessibleTree="False"/>
+        <ContentView x:Name="ContentVideos"
+                     Grid.Row="3" Grid.RowSpan="2"
+                     Opacity="0"
+                     Margin="0,20,0,40"
+                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     AutomationProperties.IsInAccessibleTree="False"/>
+        <ContentView x:Name="ContentSocialNetworks"
+                     Grid.Row="0" Grid.RowSpan="5"
+                     Opacity="0"
+                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     AutomationProperties.IsInAccessibleTree="False"/>
+        <ContentView x:Name="ContentAboutUs"
+                     Grid.Row="0" Grid.RowSpan="5"
+                     Opacity="0" InputTransparent="True"
+                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     AutomationProperties.IsInAccessibleTree="False"/>
+
+        <lottie:AnimationView x:Name="LottieHeader"
+                              Animation="LogoResolve.json"
+                              IsPlaying="False"
+                              Margin="30,50,30,0"
+                              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                              AutomationProperties.IsInAccessibleTree="False"/>
+
+        <Grid x:Name="GridButtons"
+              Grid.Row="1"
+              ColumnDefinitions="*,*,*,*" ColumnSpacing="0"
+              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="main:TabButton">
+                        <Setter Property="HorizontalOptions" Value="Center" />
+                        <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                    </Style>
+                </ResourceDictionary>
+            </Grid.Resources>
+
+            <main:TabButton x:Name="BtnNews"
+                            Grid.Column="0"
+                            CommandParameter="{Static main:TabMain.News}"
+                            AutomationProperties.IsInAccessibleTree="True"
+                            AutomationProperties.Name="{x:Static strings:Strings.MainNewButton}"
+                            AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleNewButtonHelp}"/>
+            <main:TabButton x:Name="BtnVideos"
+                            Grid.Column="1"
+                            CommandParameter="{Static main:TabMain.Videos}"
+                            AutomationProperties.IsInAccessibleTree="True"
+                            AutomationProperties.Name="{x:Static strings:Strings.MainVideosButton}"
+                            AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleVideosButtonHelp}"/>
+            <main:TabButton x:Name="BtnSocialNetworks"
+                            Grid.Column="2"
+                            CommandParameter="{Static main:TabMain.SocialNetwork}"
+                            AutomationProperties.IsInAccessibleTree="True"
+                            AutomationProperties.Name="{x:Static strings:Strings.MainSocialNetworkAccesibleText}"
+                            AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleRRSSButtonHelp}"/>
+            <main:TabButton x:Name="BtnAboutUs"
+                            Grid.Column="3"
+                            CommandParameter="{Static main:TabMain.AboutUs}"
+                            AutomationProperties.IsInAccessibleTree="True"
+                            AutomationProperties.Name="{x:Static strings:Strings.MainAboutUs}"
+                            AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleAboutUsButtonHelp}"/> 
+        </Grid>
+
+        <BoxView x:Name="BoxSelected"
+                 Grid.Row="2"
+                 Color="{StaticResource HighlightColor}" CornerRadius="2"
+                 Opacity="0"
+                 WidthRequest="100" HeightRequest="4"
+                 HorizontalOptions="Start" VerticalOptions="Fill"
+                 AutomationProperties.IsInAccessibleTree="False"/>
+
+        <Frame x:Name="FrameButtonLogo"
+               Grid.RowSpan="5"
+               CornerRadius="20" HasShadow="False"
+               BackgroundColor="{StaticResource DarkSlateBlueColor}" Opacity="0"
+               Margin="10" HeightRequest="40" WidthRequest="40" Padding="0"
+               HorizontalOptions="Start" VerticalOptions="Start"
+               AutomationProperties.IsInAccessibleTree="False">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapFrameButtonLogo" />
+            </Frame.GestureRecognizers> 
+
+            <lottie:AnimationView x:Name="LottieLogo"
+                                  Animation="CenterToLogo.json" 
+                                  Scale="0.5" Speed="0.8"
+                                  Loop="False" IsPlaying="True" 
+                                  Opacity="0"
+                                  AutomationProperties.IsInAccessibleTree="False"/>
+        </Frame>
+
+        <main:ButtonFan x:Name="BtnBottom"
+                        Grid.Row="4"
+                        Opacity="0"
+                        HeightRequest="130" Margin="0,0,0,8"                        
+                        HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"
+                        AutomationProperties.IsInAccessibleTree="False"/>
+    </Grid>
+</ContentPage>

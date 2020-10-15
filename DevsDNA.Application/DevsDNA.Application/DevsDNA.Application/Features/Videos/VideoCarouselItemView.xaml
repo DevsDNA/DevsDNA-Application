@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<carousel:ContentViewAnimated xmlns="http://xamarin.com/schemas/2014/forms" 
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:carousel="clr-namespace:DevsDNA.Application.Controls.Carousel" 
+                              xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows" 
+                              xmlns:effects="clr-namespace:DevsDNA.Application.Effects"
+                              xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                              xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+                              xmlns:videos="clr-namespace:DevsDNA.Application.Features.Videos"
+                              xmlns:strings="clr-namespace:DevsDNA.Application.Strings"
+                              mc:Ignorable="d"              
+                              x:Name="this"
+                              FrontTranslation="35" BackOpacity="0.5"
+                              x:Class="DevsDNA.Application.Features.Videos.VideoCarouselItemView">
+    
+    <Grid x:Name="GridContent">
+        <sh:Shadows CornerRadius="30" Margin="0,24,0,0">
+            <sh:Shadows.Shades>
+                <sh:ImmutableShades>
+                    <sh:Shade BlurRadius="{OnPlatform Android=10, iOS=25}" Offset="0,20"
+                              Color="{StaticResource ShadowGrayColor}" Opacity="0.25" />
+                </sh:ImmutableShades>
+            </sh:Shadows.Shades>
+
+            <Frame x:Name="FrameContent"
+                   CornerRadius="30" HasShadow="False" IsClippedToBounds="True"
+                   Padding="0"
+                   AutomationProperties.IsInAccessibleTree="True"
+                   AutomationProperties.Name="{Binding Title}"
+                   AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleDoubleTapVideoDetail}">
+                <Frame.Effects>
+                    <effects:FixedFrameClippedToBoundsEffect/>
+                </Frame.Effects>
+                <Grid RowDefinitions="0.45*, 0.55*">
+                    <ffimage:CachedImage Grid.Row="0"                                            
+                                         Aspect="AspectFill" Source="{Binding Image}"
+                                         sharedTransitions:Transition.Name="{x:Static videos:VideoCarouselItemView.ImageTransitionName}" sharedTransitions:Transition.Group="{Binding Id}"
+                                         AutomationProperties.IsInAccessibleTree="False"/>
+                    
+                    <Grid Grid.Row="1"
+                          RowDefinitions="auto,*"
+                          Margin="20,10,20,20">
+                        <Label Grid.Row="0" 
+                               TextColor="{StaticResource LightBlueColor}" FontFamily="SpaceMono-Regular" HorizontalTextAlignment="Start"                               
+                               LineHeight="0.9" MaxLines="3" FontSize="Default" Text="{Binding Title}"
+                               AutomationProperties.IsInAccessibleTree="False"/>
+
+                        <Label Grid.Row="1"
+                               TextColor="{StaticResource BrowGreyColor}" FontFamily="Heebo-Regular" HorizontalTextAlignment="Start"
+                               FontSize="Small" Text="{Binding Description}"
+                               AutomationProperties.IsInAccessibleTree="False">
+                            <Label.Effects>
+                                <effects:LabelHeightAdjustEffect/>
+                            </Label.Effects>
+                        </Label>
+                    </Grid>
+                    
+                    <BoxView x:Name="BoxViewOpacity"
+                             Grid.Row="0" Grid.RowSpan="2" 
+                             Opacity="0.5" BackgroundColor="{StaticResource BrightnessColor}"/>
+                </Grid>
+            </Frame>
+        </sh:Shadows>
+        
+        <Button x:Name="BtnShare" ImageSource="share" CornerRadius="24"
+                BackgroundColor="White"
+                Margin="18,0,0,0" HeightRequest="48" WidthRequest="48"
+                Command="{Binding Source={x:Reference this}, Path=ShareCommand}" CommandParameter="{Binding Source={x:Reference this}, Path=BindingContext}"
+                HorizontalOptions="Start" VerticalOptions="Start"
+                AutomationProperties.IsInAccessibleTree="True"
+                AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleBtnShareVideoHelp}"/>
+    </Grid>   
+</carousel:ContentViewAnimated>

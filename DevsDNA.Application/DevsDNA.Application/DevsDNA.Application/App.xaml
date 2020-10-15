@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DevsDNA.Application.App">
+    <Application.Resources>
+		<ResourceDictionary>
+			<Color x:Key="DarkBlueColor">#1d1d54</Color>
+            <Color x:Key="DarkSlateBlueColor">#292969</Color>
+            <Color x:Key="LightBlueColor">#369eae</Color>
+            <Color x:Key="HighlightColor">#b8ff16</Color>
+            <Color x:Key="BrownishGreyColor">#707070</Color>
+            <Color x:Key="BrowGreyColor">#979797</Color>
+            <Color x:Key="VeryLightPinkColor">#d7d7d7</Color>
+            <Color x:Key="ShadowGrayColor">#a8a8a8</Color>
+            <Color x:Key="BrightnessColor">#fefefe</Color>
+            <Color x:Key="WhiteColor">White</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

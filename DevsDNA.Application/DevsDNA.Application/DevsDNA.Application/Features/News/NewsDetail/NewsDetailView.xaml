@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:base="clr-namespace:DevsDNA.Application.Base"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                      xmlns:news="clr-namespace:DevsDNA.Application.Features.News"
+                      xmlns:newsDetail="clr-namespace:DevsDNA.Application.Features.News.NewsDetail"
+                      xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+                      xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+                      xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows" 
+                      xmlns:efects="clr-namespace:DevsDNA.Application.Effects"
+                      xmlns:strings="clr-namespace:DevsDNA.Application.Strings"
+                      mc:Ignorable="d" 
+                      x:TypeArguments="news:NewsDetailViewModel"      
+                      NavigationPage.HasNavigationBar="False"
+                      x:Class="DevsDNA.Application.Features.News.NewsDetailView">
+
+    <Grid x:Name="GridMain"
+          RowDefinitions="0.48*,30,0.52*" RowSpacing="0">
+        <ffimage:CachedImage x:Name="ImageNews"
+                             Grid.Row="0" Grid.RowSpan="2"
+                             Aspect="AspectFill"
+                             Source="{Binding BlogItemModel.Image}" sharedTransitions:Transition.Name="{x:Static news:NewsCarouselItemView.ImageTransitionName}"
+                             AutomationProperties.IsInAccessibleTree="False"/>
+       
+        <ffimage:CachedImage x:Name="ImageLogo"
+                             Grid.Row="0" Grid.RowSpan="3"
+                             Aspect="AspectFill" Source="logotipo"
+                             Opacity="0"
+                             Margin="{OnPlatform Android='0,30,0,0', iOS='0,10,0,0'}"
+                             HorizontalOptions="Center" VerticalOptions="Start"
+                             AutomationProperties.IsInAccessibleTree="False"/>
+
+        <ScrollView x:Name="ScrollViewContent"
+                    VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never"
+                    Opacity="0"
+                    Grid.Row="0" Grid.RowSpan="3">
+            <ScrollView.Effects>
+                <efects:RemoveBouncesEffect/>
+            </ScrollView.Effects>
+            <Grid x:Name="GridContent"
+                  RowDefinitions="48,20,auto,auto,*">
+                <BoxView Grid.Row="0" Grid.RowSpan="5"
+                         CornerRadius="30"
+                         BackgroundColor="White"
+                         Margin="0,24,0,-24"/>
+
+                <sh:Shadows Grid.Row="0"
+                            CornerRadius="24"   
+                            HeightRequest="48" WidthRequest="48" Margin="0,0,82,0"
+                            HorizontalOptions="End" VerticalOptions="Start">
+                    <sh:Shadows.Shades>
+                        <sh:ImmutableShades>
+                            <sh:Shade Color="{StaticResource ShadowGrayColor}" Offset="0,12" BlurRadius="{OnPlatform Android=5, iOS=12}"/>
+                        </sh:ImmutableShades>
+                    </sh:Shadows.Shades>
+                    <Button x:Name="ButtonShare"
+                            ImageSource="share" CornerRadius="24"
+                            BackgroundColor="White"
+                            AutomationProperties.IsInAccessibleTree="True"
+                            AutomationProperties.Name="{x:Static strings:Strings.AccessibleBtnShare}"
+                            AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleBtnShareNewsHelp}"/>
+                </sh:Shadows>
+
+                <sh:Shadows Grid.Row="0"
+                            CornerRadius="24"   
+                            HeightRequest="48" WidthRequest="48" Margin="0,0,24,0"
+                            HorizontalOptions="End" VerticalOptions="Start">
+                    <sh:Shadows.Shades>
+                        <sh:ImmutableShades>
+                            <sh:Shade Color="{StaticResource ShadowGrayColor}" Offset="0,12" BlurRadius="{OnPlatform Android=5, iOS=12}"/>
+                        </sh:ImmutableShades>
+                    </sh:Shadows.Shades>
+                    <Button x:Name="ButtonClose"
+                            ImageSource="close_blue" CornerRadius="24"
+                            BackgroundColor="White"
+                            AutomationProperties.IsInAccessibleTree="True"
+                            AutomationProperties.Name="{x:Static strings:Strings.AccessibleBtnClose}"
+                            AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleBtnCloseNewsHelp}"/>
+                </sh:Shadows>
+
+                <ScrollView Grid.Row="1" 
+                            Orientation="Horizontal" HorizontalScrollBarVisibility="Never"
+                            Margin="20,-10,135,0">
+                    <StackLayout x:Name="LayoutCategories"                                 
+                                 Orientation="Horizontal"
+                                 AutomationProperties.IsInAccessibleTree="False">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Frame HasShadow="False" CornerRadius="15" Padding="10,5,10,5" BorderColor="{StaticResource BrowGreyColor}"
+                                       AutomationProperties.IsInAccessibleTree="False">
+                                    <Label VerticalOptions="Center" Text="{Binding .}" TextColor="{StaticResource BrowGreyColor}" FontFamily="Heebo-Regular" FontSize="Micro"
+                                           AutomationProperties.IsInAccessibleTree="False"/>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </ScrollView>               
+
+                <Label x:Name="LabelTitle"
+                       Grid.Row="2"
+                       TextColor="{StaticResource DarkBlueColor}" FontFamily="Heebo-Black" FontSize="Large" LineHeight="0.8"
+                       Margin="20,10"
+                       AutomationProperties.IsInAccessibleTree="True"/>
+                
+                <Label x:Name="LabelDate"
+                       Grid.Row="3"
+                       TextColor="{StaticResource LightBlueColor}" FontFamily="SpaceMono-Regular" FontSize="Body"
+                       Margin="20,0"
+                       AutomationProperties.IsInAccessibleTree="False"/>
+
+                <newsDetail:WebviewNews x:Name="WebviewNews"
+                                        Grid.Row="4"
+                                        Margin="10,0,10,0"
+                                        AutomationProperties.IsInAccessibleTree="True"/>
+            </Grid>          
+        </ScrollView>
+
+    
+    </Grid>   
+</base:BaseContentPage>

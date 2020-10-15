@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" 
+      xmlns:controls="clr-namespace:DevsDNA.Application.Controls"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+      x:Class="DevsDNA.Application.Features.Main.TabButton"
+      AutomationProperties.IsInAccessibleTree="False">    
+    <Grid.GestureRecognizers>
+        <TapGestureRecognizer x:Name="tapGestureRecognizer" 
+                              Command="{Binding Command}" CommandParameter="{Binding CommandParameter}" />
+    </Grid.GestureRecognizers>
+
+    <controls:LabelTypewriter x:Name="LblText"
+                              TextColor="{StaticResource HighlightColor}" Font="SpaceMono-Regular" FontSize="Small" 
+                              Text="{Binding Text}" LineBreakMode="WordWrap" MaxLines="1"
+                              HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
+                              AutomationProperties.IsInAccessibleTree="False" />
+</Grid>

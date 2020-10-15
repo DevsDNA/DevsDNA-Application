@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutUsCEO">
+    <value>Directora ejecutiva</value>
+  </data>
+  <data name="AboutUsCTO">
+    <value>Director técnico</value>
+  </data>
+  <data name="AboutUsDescriptionBeatriz">
+    <value>Madre de 3. Empresaria con vocación por la conciliación y ayudar a las personas, aplicando su Máster de administración de empresas en su día a día, y co-fundadora de DevsDNA.</value>
+  </data>
+  <data name="AboutUsDescriptionCiani">
+    <value>Aeromodelista, programador y un poco gamer.</value>
+  </data>
+  <data name="AboutUsDescriptionJorge">
+    <value>Obsesionado con el código limpio, reutilización y productividad. Programador apasionado.</value>
+  </data>
+  <data name="AboutUsDescriptionLuis">
+    <value>Programador entusiasta de las últimas tecnologías. Motivado por investigar las últimas novedades de diseño con Xamarin.</value>
+  </data>
+  <data name="AboutUsDescriptionMarco">
+    <value>Apasionado de las tecnologías .Net y su comunidad. Programando en Xamarin desde hace más de 5 años.</value>
+  </data>
+  <data name="AboutUsDescriptionYeray">
+    <value>Padre de 3. Adepto Xamarin, orador de la comunidad. Fundador de DevsDNA.</value>
+  </data>
+  <data name="AboutUsFunnyDescriptionBeatriz">
+    <value>Vino de más allá del horizonte para solucionar los problemas que causa el resto (y aun así nos quiere). Hace que todo funcione y nos libra de los problemas.</value>
+  </data>
+  <data name="AboutUsFunnyDescriptionCiani">
+    <value>Tras años persiguiendo al inspector Gadget, Ciani se pasó al mundo del desarrollo de la mano de Xamarin y DevsDNA.</value>
+  </data>
+  <data name="AboutUsFunnyDescriptionJorge">
+    <value>Levanta el dedo meñique para beber té al estilo inglés mientras programa. Esto le proporciona sabiduría y conocimientos especiales que los demás no llegamos a comprender.</value>
+  </data>
+  <data name="AboutUsFunnyDescriptionLuis">
+    <value>Tras sobrevivir en la lucha contra gigantes y caminantes blancos durante años, Luis se dedicó por completo a la programación, hasta que la Guardia de la Noche vuelva a reclamarlo.</value>
+  </data>
+  <data name="AboutUsFunnyDescriptionMarco">
+    <value>Al igual que el del Equipo A, nuestro MA detesta volar. Aun así, se muda una o más veces al año porque no termina de decidir en qué ciudad vive.</value>
+  </data>
+  <data name="AboutUsFunnyDescriptionYeray">
+    <value>Nuestro Gyubrush Threepwood particular. Intentó aprender el oficio de pirata hasta que descubrió que en el barco no tendría buena conexión para jugar con la X-BOX.</value>
+  </data>
+  <data name="AboutUsMobileDeveloper">
+    <value>Desarrollador móvil</value>
+  </data>
+  <data name="AboutUsMobileDeveloperSenior">
+    <value>Desarrollador móvil senior</value>
+  </data>
+  <data name="AboutUsSubtitle">
+    <value>&lt; Ayudarte a desarrollar increíbles aplicaciones móviles está en nuestro ADN &gt;</value>
+  </data>
+  <data name="AboutUsTitle">
+    <value>Expertos en la creación de productos digitales</value>
+  </data>
+  <data name="AccessibleAboutUsButtonHelp">
+    <value>Haz doble tap para cargar la información sobre nosotros</value>
+  </data>
+  <data name="AccessibleBtnCallDevsDNA">
+    <value>Botón para llamar a DevsDNA</value>
+  </data>
+  <data name="AccessibleBtnClose">
+    <value>Cerrar</value>
+  </data>
+  <data name="AccessibleBtnCloseNewsHelp">
+    <value>Haz doble tap para salir de la noticia</value>
+  </data>
+  <data name="AccessibleBtnClosePostHelp">
+    <value>Haz doble tap para cerrar el post actual</value>
+  </data>
+  <data name="AccessibleBtnCloseVideoHelp">
+    <value>Haz doble tap para salir del reproductor del vídeo</value>
+  </data>
+  <data name="AccessibleBtnMailDevsDNA">
+    <value>Botón para enviar email a DevsDNA</value>
+  </data>
+  <data name="AccessibleBtnMainActions">
+    <value>Acciones generales</value>
+  </data>
+  <data name="AccessibleBtnMainActionsHelp">
+    <value>Haz doble tap para acceder a las acciones generales</value>
+  </data>
+  <data name="AccessibleBtnOpenFacebookDevsDNA">
+    <value>Botón para abrir facebook de DevsDNA</value>
+  </data>
+  <data name="AccessibleBtnOpenInstagramDevsDNA">
+    <value>Botón para abrir instagram de DevsDNA</value>
+  </data>
+  <data name="AccessibleBtnOpenLinkedinDevsDNA">
+    <value>Botón para abrir linkedin de DevsDNA</value>
+  </data>
+  <data name="AccessibleBtnOpenPost">
+    <value>Abrir enlace del post</value>
+  </data>
+  <data name="AccessibleBtnOpenPostHelp">
+    <value>Haz doble tap para abrir el enlace del post</value>
+  </data>
+  <data name="AccessibleBtnOpenTwitterDevsDNA">
+    <value>Botón para abrir twitter de DevsDNA</value>
+  </data>
+  <data name="AccessibleBtnPlayVideo">
+    <value>Reproductor de vídeo</value>
+  </data>
+  <data name="AccessibleBtnPlayVideoHelp">
+    <value>Haz doble tap para iniciar la reproducción del vídeo</value>
+  </data>
+  <data name="AccessibleBtnShare">
+    <value>Compartir</value>
+  </data>
+  <data name="AccessibleBtnShareDevsDNAApp">
+    <value>Botón para compartir aplicación</value>
+  </data>
+  <data name="AccessibleBtnShareNewsHelp">
+    <value>Haz doble tap para compartir la noticia</value>
+  </data>
+  <data name="AccessibleBtnShareVideoHelp">
+    <value>Haz doble tap para compartir el vídeo</value>
+  </data>
+  <data name="AccessibleDoubleTapNewsDetail">
+    <value>Haz doble tap para tener más detalles de esta noticia</value>
+  </data>
+  <data name="AccessibleDoubleTapVideoDetail">
+    <value>Haz doble tap para iniciar la reproducción del vídeo</value>
+  </data>
+  <data name="AccessibleNewButtonHelp">
+    <value>Haz doble tap para cargar el carrusel de noticias</value>
+  </data>
+  <data name="AccessibleNewsCarouselHelp">
+    <value>Puedes hacer scroll horizontal para desplazarte por las distintas noticias</value>
+  </data>
+  <data name="AccessibleNewsCarouselName">
+    <value>Carrusel de noticias</value>
+  </data>
+  <data name="AccessibleRRSSButtonHelp">
+    <value>Haz doble tap para cargar los posts de redes sociales</value>
+  </data>
+  <data name="AccessibleRRSSCollectionHelp">
+    <value>Puedes hacer scroll vertical para desplazarte por los distintos posts</value>
+  </data>
+  <data name="AccessibleRRSSCollectionName">
+    <value>Colección de posts en nuestras redes sociales</value>
+  </data>
+  <data name="AccessibleVideosButtonHelp">
+    <value>Haz doble tap para cargar el carrusel de vídeos</value>
+  </data>
+  <data name="AccessibleVideosCarouselHelp">
+    <value>Puedes hacer scroll horizontal para desplazarte por los distintos vídeos</value>
+  </data>
+  <data name="AccessibleVideosCarouselName">
+    <value>Carrusel de vídeos</value>
+  </data>
+  <data name="AlertCheckConnectionAgain">
+    <value>Vuelve a comprobar la conexión</value>
+  </data>
+  <data name="AlertError">
+    <value>Error</value>
+  </data>
+  <data name="AlertErrorCheckingConnection">
+    <value>Ha ocurrido un error mientras comprobábamos la conexión a internet ¿Desea comprobar la conexión de nuevo?</value>
+  </data>
+  <data name="AlertIWantKeepGoing">
+    <value>Quiero continuar</value>
+  </data>
+  <data name="AlertMailNotSupported">
+    <value>Email no disponible en este dispositivo. No podemos escribir a info@devsdna.com.</value>
+  </data>
+  <data name="AlertNo">
+    <value>No</value>
+  </data>
+  <data name="AlertNoConnectivity">
+    <value>No hay conexión a internet, de esta forma no podrás leer nuestro maravilloso blog, ni nuestros educativos videos, ni nuestras cuidadas redes sociales ¿Por qué no pruebas a conectar el dispositivo a internet y luego nos vemos?</value>
+  </data>
+  <data name="AlertNotificationText">
+    <value>¿Desea recibir notificaciones con las actualizaciones de nuestro blog o canal de YouTube?</value>
+  </data>
+  <data name="AlertNotificationTitle">
+    <value>Bienvenido a DevsDNA</value>
+  </data>
+  <data name="AlertOk">
+    <value>Aceptar</value>
+  </data>
+  <data name="AlertPhoneDialerNotSupported">
+    <value>Marcador de teléfono no disponible en este dispositivo. No podemos llamar al +34 627 273 613.</value>
+  </data>
+  <data name="AlertPoorConnectivity">
+    <value>Hemos detectado una conexión débil a internet, tal vez sufras demoras en la carga de datos si continúas.</value>
+  </data>
+  <data name="AlertSure">
+    <value>Por supuesto</value>
+  </data>
+  <data name="AlertUnexpectedError">
+    <value>Ha ocurrido un error inesperado. Por favor, inténtelo de nuevo.</value>
+  </data>
+  <data name="AlertYeah">
+    <value>¡Claro!</value>
+  </data>
+  <data name="AlertYes">
+    <value>Sí</value>
+  </data>
+  <data name="ButtonFanMailSubject">
+    <value>Contacto desde la app</value>
+  </data>
+  <data name="ButtonFanMailText">
+    <value>
+
+--
+Enviado desde la aplicación de DevsDNA.</value>
+  </data>
+  <data name="ButtonFanShareTitle">
+    <value>¡Mira la awesómica aplicación de DevsDNA!</value>
+  </data>
+  <data name="MainAboutUs">
+    <value>Nosotros</value>
+  </data>
+  <data name="MainNewButton">
+    <value>Noticias</value>
+  </data>
+  <data name="MainSocialNetworkAccesibleText">
+    <value>Redes sociales</value>
+  </data>
+  <data name="MainSocialNetworkButton">
+    <value>RRSS</value>
+  </data>
+  <data name="MainVideosButton">
+    <value>Vídeos</value>
+  </data>
+  <data name="SocialNetworkPostAccount">
+    <value>@DEVSDNA</value>
+  </data>
+  <data name="SocialNetworkPostAuthor">
+    <value>DevsDNA</value>
+  </data>
+  <data name="SplashSlogan">
+    <value>&lt; Ayudarte a desarrollar increíbles aplicaciones móviles está en nuestro ADN &gt;</value>
+  </data>
+  <data name="SplashStart">
+    <value>comenzar</value>
+  </data>
+  <data name="AccessibleBtnShareVideo">
+    <value>Compartir vídeo</value>
+  </data>
+  <data name="AccessibleAboutUsSubtitle">
+    <value>Ayudarte a desarrollar increíbles aplicaciones móviles está en nuestro ADN</value>
+  </data>
+  <data name="AccessibleSplashSlogan">
+    <value>Ayudarte a desarrollar increíbles aplicaciones móviles está en nuestro ADN</value>
+  </data>
+</root>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:base="clr-namespace:DevsDNA.Application.Base"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                      xmlns:videos="clr-namespace:DevsDNA.Application.Features.Videos"                      
+                      xmlns:controls="clr-namespace:DevsDNA.Application.Controls.Carousel"
+                      xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+                      xmlns:strings="clr-namespace:DevsDNA.Application.Strings"
+                      x:Class="DevsDNA.Application.Features.Videos.VideosView"
+                      x:TypeArguments="videos:VideosViewModel">
+    <Grid>
+        <controls:CarouselAnimated x:Name="CarouselVideos"
+                                   AutomationProperties.IsInAccessibleTree="{OnPlatform Android='True', iOS='False'}"
+                                   AutomationProperties.Name="{x:Static strings:Strings.AccessibleVideosCarouselName}"
+                                   AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleVideosCarouselHelp}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate x:DataType="videos:VideoModel">
+                    <videos:VideoCarouselItemView ShareCommand="{Binding Source={x:Reference CarouselVideos}, Path=BindingContext.ShareVideoCommand}">
+                        <videos:VideoCarouselItemView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:Reference CarouselVideos}, Path=BindingContext.OpenVideoCommand}" 
+                                                  CommandParameter="{Binding .}"/>
+                        </videos:VideoCarouselItemView.GestureRecognizers>
+                    </videos:VideoCarouselItemView>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </controls:CarouselAnimated>
+
+        <lottie:AnimationView x:Name="LottieLoading" 
+                              AutoPlay="False" Loop="True"
+                              Animation="Loading.json" Scale="0.5" Speed="0.8"
+                              IsVisible="False" InputTransparent="True"
+                              AutomationProperties.IsInAccessibleTree="False"/>
+    </Grid>
+    
+</base:BaseContentView>
