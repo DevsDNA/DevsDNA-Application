@@ -10,6 +10,7 @@
                       x:TypeArguments="news:NewsViewModel">
     <Grid>
         <controls:CarouselAnimated x:Name="CarouselNews"
+                                   Loop="False"
                                    AutomationProperties.IsInAccessibleTree="{OnPlatform Android='True', iOS='False'}"
                                    AutomationProperties.Name="{x:Static strings:Strings.AccessibleNewsCarouselName}"
                                    AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleNewsCarouselHelp}">

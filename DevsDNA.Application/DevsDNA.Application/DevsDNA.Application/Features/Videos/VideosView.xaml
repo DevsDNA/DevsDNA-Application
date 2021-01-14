@@ -10,6 +10,7 @@
                       x:TypeArguments="videos:VideosViewModel">
     <Grid>
         <controls:CarouselAnimated x:Name="CarouselVideos"
+                                   Loop="False"
                                    AutomationProperties.IsInAccessibleTree="{OnPlatform Android='True', iOS='False'}"
                                    AutomationProperties.Name="{x:Static strings:Strings.AccessibleVideosCarouselName}"
                                    AutomationProperties.HelpText="{x:Static strings:Strings.AccessibleVideosCarouselHelp}">

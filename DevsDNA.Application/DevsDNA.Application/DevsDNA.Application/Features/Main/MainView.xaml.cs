@@ -10,8 +10,8 @@
 	using System;
 	using System.Linq;
 	using System.Reactive;
-    using System.Reactive.Disposables;
-    using System.Reactive.Linq;
+	using System.Reactive.Disposables;
+	using System.Reactive.Linq;
 	using System.Threading.Tasks;
 	using Xamarin.Forms;
 
@@ -63,7 +63,7 @@
 		}
 
 		~MainView()
-        {
+		{
 			disposables?.Dispose();
 		}
 
@@ -107,12 +107,12 @@
 
 			row0Height = MainGrid.Height * 0.2;
 			MainGrid.RowDefinitions[0].Height = new GridLength(row0Height);
-			MainGrid.RowDefinitions[1].Height = new GridLength(Math.Min(row0Height / 4, 40));			
+			MainGrid.RowDefinitions[1].Height = new GridLength(Math.Min(row0Height / 4, 40));
 			double row3Height = (MainGrid.Height * 0.44) - (MainGrid.RowDefinitions[0].Height.Value + MainGrid.RowDefinitions[1].Height.Value + MainGrid.RowDefinitions[2].Height.Value);
 			MainGrid.RowDefinitions[3].Height = new GridLength(row3Height);
 			LottieHeader.Margin = new Thickness(30, row0Height / 8, 30, row0Height / 8);
 
-			// HorizontalOptions and VerticalOptions not works in Lottie.
+			// HorizontalOptions and VerticalOptions not works in Lottie. 
 			double emptySpace1 = BoxBackground.Y;
 			LottieBackground1.TranslationY = emptySpace1 - LottieBackground1.Height;
 			LottieBackground1.TranslationX = LottieBackground1.Width / 2;
@@ -139,7 +139,7 @@
 
 			InitialAnimationExecuting = true;
 
-			LottieHeader.Play();			
+			LottieHeader.Play();
 			await BtnNews.WriteText(Strings.Strings.MainNewButton, true);
 			await BtnVideos.WriteText(Strings.Strings.MainVideosButton);
 			await BtnSocialNetworks.WriteText(Strings.Strings.MainSocialNetworkButton);
@@ -165,13 +165,13 @@
 
 		private void LogoInitScrollCommand()
 		{
-			var currentView = GetCurrentContent()?.Content;
+			View currentView = GetCurrentContent()?.Content;
 			if (currentView is AboutUsView aboutUsView)
 			{
 				aboutUsView.ScrollToInit();
 			}
-			else if(currentView is SocialNetworkView socialNetworkView)
-            {
+			else if (currentView is SocialNetworkView socialNetworkView)
+			{
 				socialNetworkView.ScrollToInitAsync().ConfigureAwait(false);
 			}
 		}
@@ -204,7 +204,7 @@
 			{
 				ContentView currentContent = GetCurrentContent() ?? ContentAboutUs;
 				ContentView nextContent = null;
-				
+
 				switch (nextTab)
 				{
 					case TabMain.News:
@@ -236,6 +236,7 @@
 				BtnBottom.CurrentTab = nextTab;
 
 				await DoTransitionToNextTab(currentContent, nextContent, nextTab, isInitialAnimation);
+				(nextContent.Content as VideosView)?.ViewModel?.SetData();
 				if (isVoiceAssistantActive)
 					ClearPreviousTabContent(nextTab);
 			}
@@ -275,7 +276,7 @@
 
 		private NewsView CreateNewsView()
 		{
-			var newsView = new NewsView { ViewModel = new NewsViewModel(dependencyService) };
+			NewsView newsView = new NewsView { ViewModel = new NewsViewModel(dependencyService) };
 
 			disposables.Add(newsView.ScrolledObservable.Subscribe(async _ => await BtnBottom.CloseAsync()));
 			disposables.Add(newsView.OpeningDetailObservable.Subscribe(async _ => await BtnBottom.CloseAsync()));
@@ -285,7 +286,7 @@
 
 		private VideosView CreateVideosView()
 		{
-			var videosView = new VideosView { ViewModel = new VideosViewModel(dependencyService) };
+			VideosView videosView = new VideosView { ViewModel = new VideosViewModel(dependencyService) };
 
 			disposables.Add(videosView.ScrolledObservable.Subscribe(async _ => await BtnBottom.CloseAsync()));
 			disposables.Add(videosView.OpeningVideoObservable.Subscribe(async _ => await BtnBottom.CloseAsync()));
@@ -295,13 +296,13 @@
 
 		private SocialNetworkView CreateSocialNetworkView()
 		{
-			var socialNetworkView = new SocialNetworkView(MainGrid.RowDefinitions[0].Height.Value + MainGrid.RowDefinitions[1].Height.Value + 20) { ViewModel = new SocialNetworkViewModel(dependencyService) };
+			SocialNetworkView socialNetworkView = new SocialNetworkView(MainGrid.RowDefinitions[0].Height.Value + MainGrid.RowDefinitions[1].Height.Value + 20) { ViewModel = new SocialNetworkViewModel(dependencyService) };
 
 			disposables.Add(socialNetworkView.ScrolledObservable.ObserveOn(RxApp.MainThreadScheduler)
 								.Where(c => !InitialAnimationExecuting).Subscribe(ScrolledObservableSubscription, logService.LogError));
 
 			disposables.Add(socialNetworkView.OpeningDetailObservable.Subscribe(async _ => { await BtnBottom.CloseAsync(); await BtnBottom.DisappearAsync(); }));
-							
+
 			disposables.Add(socialNetworkView.ClosingDetailObservable
 										.WithLatestFrom(socialNetworkView.ScrolledObservable.Select(s => s.VerticalOffset).StartWith(0), (a, b) => b)
 										.Where(vo => vo <= scrollOffsetToHideHeader).Subscribe(async _ => await BtnBottom.AppearAsync()));
@@ -310,7 +311,7 @@
 
 		private AboutUsView CreateAboutUsView()
 		{
-			var aboutUsView = new AboutUsView(MainGrid.RowDefinitions[0].Height.Value + MainGrid.RowDefinitions[1].Height.Value + 20) { ViewModel = new AboutUsViewModel(dependencyService) };
+			AboutUsView aboutUsView = new AboutUsView(MainGrid.RowDefinitions[0].Height.Value + MainGrid.RowDefinitions[1].Height.Value + 20) { ViewModel = new AboutUsViewModel(dependencyService) };
 
 			disposables.Add(aboutUsView.ScrolledObservable.ObserveOn(RxApp.MainThreadScheduler)
 											.Where(c => !InitialAnimationExecuting).Subscribe(ScrolledObservableSubscription, logService.LogError));
@@ -511,7 +512,7 @@
 		private void ScrolledObservableSubscription(ItemsViewScrolledEventArgs e)
 		{
 			HandleButtonFanAspectAsync(e).ConfigureAwait(false);
-			
+
 			double marginLottie = LottieHeader.Margin.Top;
 
 			if (e.VerticalOffset < scrollOffsetToHideHeader && e.VerticalOffset > 5)
@@ -539,18 +540,17 @@
 			Animation animations = new Animation
 			{
 				{ 0, 1, new Animation(x => MainGrid.RowDefinitions[0].Height = new GridLength(x), MainGrid.RowDefinitions[0].Height.Value, marginLottie * 4) },
-				{ 0, 1, new Animation(x => MainGrid.RowDefinitions[1].Height = new GridLength(x), MainGrid.RowDefinitions[1].Height.Value, Math.Min(marginLottie, 40)) }				
+				{ 0, 1, new Animation(x => MainGrid.RowDefinitions[1].Height = new GridLength(x), MainGrid.RowDefinitions[1].Height.Value, Math.Min(marginLottie, 40)) }
 			};
 			animations.Commit(this, nameof(animations));
 		}
 
 		private Task HandleButtonFanAspectAsync(ItemsViewScrolledEventArgs e)
-        {
-			if(e.VerticalOffset < scrollOffsetToHideHeader)
+		{
+			if (e.VerticalOffset < scrollOffsetToHideHeader)
 				return Task.WhenAll(BtnBottom.CloseAsync(), BtnBottom.AppearAsync());
 			else
 				return Task.WhenAll(BtnBottom.CloseAsync(), BtnBottom.DisappearAsync());
 		}
 	}
 }
- 

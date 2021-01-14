@@ -27,7 +27,8 @@
 			IObservable<EventPattern<object>> observableAnimationEvent = Observable.FromEventPattern(h => LottieLogo.OnFinish += h, h => LottieLogo.OnFinish -= h);
 			disposables.Add(observableAnimationEvent.Subscribe(ep => ViewModel.NavigateCommand.Execute()));
 			disposables.Add(ViewModel.FinishedSplash.Subscribe(async _ => await FinishedSplashCompletedAsync(), LogService.LogError));
-			disposables.Add(this.OneWayBind(ViewModel, vm => vm.StartCommand, v => v.BtnStart.Command));
+			disposables.Add(this.OneWayBind(ViewModel, vm => vm.StartCommand, v => v.BtnStart.Command)); 
+			disposables.Add(this.OneWayBind(ViewModel, vm => vm.StartCommand, v => v.BtnStart2.Command));
 
 			return disposables;
 		}
@@ -74,13 +75,16 @@
 		private async Task FinishedSplashCompletedAsync()
 		{
 			BtnStart.IsVisible = true;
+			FrameStart.IsVisible = true;
 			AutomationProperties.SetIsInAccessibleTree(BtnStart, true);
+			AutomationProperties.SetIsInAccessibleTree(BtnStart2, true);
 
 			await Task.WhenAll(GridSplash.FadeTo(0), GridInitialScreen.FadeTo(1));
 			await ShowBackgroundInitialScreenAsync();
 			await LblSlogan.ShowAsync();
 			await ShowLogoAsync();
 			await BtnStart.FadeTo(1);
+			await FrameStart.FadeTo(1);
 		}
 
 		private async Task ShowBackgroundInitialScreenAsync()

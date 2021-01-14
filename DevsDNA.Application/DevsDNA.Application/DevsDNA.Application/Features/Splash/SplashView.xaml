@@ -60,15 +60,51 @@
                                       AutomationProperties.Name="{x:Static strings:Strings.AccessibleSplashSlogan}"
                                       AutomationId=" "/>
 
-            <controls:ButtonRoundedGradient x:Name="BtnStart"
-                                            Grid.Row="2"
-                                            StartColor="{StaticResource StartButtonColor}" EndColor="{StaticResource EndButtonColor}" Text="{x:Static strings:Strings.SplashStart}"
-                                            Opacity="0"
-                                            IsVisible="False"
-                                            Margin="0,30,0,0"
-                                            HorizontalOptions="Center" VerticalOptions="Start"
-                                            AutomationProperties.IsInAccessibleTree="False"
-                                            AutomationProperties.Name="{x:Static strings:Strings.SplashStart}"/>
+            <OnPlatform x:TypeArguments="View">
+                <On Platform="Android">
+                    <Button x:Name="BtnStart" 
+                            Grid.Row="2" 
+                            Text="{x:Static strings:Strings.SplashStart}" 
+                            Opacity="0" IsVisible="False" CornerRadius="25" 
+                            Margin="0,30,0,0" Padding="30,0" 
+                            HorizontalOptions="Center" VerticalOptions="Start" 
+                            AutomationProperties.IsInAccessibleTree="False" 
+                            AutomationProperties.Name="{x:Static strings:Strings.SplashStart}">
+                        <Button.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="{StaticResource StartButtonColor}" 
+                                              Offset="0.0" />
+                                <GradientStop Color="{StaticResource EndButtonColor}" 
+                                              Offset="1.1" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </On>
+                <On Platform="iOS">
+                    <Frame x:Name="FrameStart" 
+                           Grid.Row="2" 
+                           Opacity="0" IsVisible="False" CornerRadius="20" 
+                           Margin="0,30,0,0" Padding="5,0" 
+                           HorizontalOptions="Center" VerticalOptions="Start">
+                        <Frame.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="{StaticResource StartButtonColor}" 
+                                              Offset="0.0" />
+                                <GradientStop Color="{StaticResource EndButtonColor}" 
+                                              Offset="1.1" />
+                            </LinearGradientBrush>
+                        </Frame.Background>
+
+                        <Button x:Name="BtnStart2" 
+                                Text="{x:Static strings:Strings.SplashStart}" 
+                                CornerRadius="25" 
+                                Padding="30,0" 
+                                HorizontalOptions="Center" VerticalOptions="Start" 
+                                AutomationProperties.IsInAccessibleTree="False" 
+                                AutomationProperties.Name="{x:Static strings:Strings.SplashStart}" />
+                    </Frame>
+                </On>
+            </OnPlatform>
         </Grid>        
 	</Grid>
 </base:BaseContentPage>

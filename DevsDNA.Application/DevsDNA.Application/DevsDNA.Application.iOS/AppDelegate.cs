@@ -25,7 +25,6 @@
 
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-			Forms.SetFlags("CarouselView_Experimental", "Markup_Experimental");
 			Forms.Init();
 
 			logService = CustomDependencyService.Instance.Get<ILogService>();
